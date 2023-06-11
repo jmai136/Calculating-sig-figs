@@ -96,7 +96,7 @@
         
         $sigFigs = (isset($matches[1])) ? strlen($matches[1]) : strlen($number) - 1;
 
-        printf("Matches: %d, Sig figs does not contain decimal: %d\n", $matches[1], $sigFigs);
+        // printf("Matches: %d, Sig figs does not contain decimal: %d\n", $matches[1], $sigFigs);
 
         // Does it not contain a decimal point
       } elseif (substr_count($number,".") == 0) {
