@@ -86,7 +86,7 @@ class CalculateSigFigsUnitTest extends \PHPUnit\Framework\TestCase
     }
 
     // constants
-    public function testInfinityPi()
+    public function testInfinity()
     {
         $input = M_PI;
         $expectedOutput = INF;
@@ -135,15 +135,7 @@ class CalculateSigFigsUnitTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expectedOutput, $result);
     }
 
-    public function testPositiveNumberInScientificNotationDecimalsAdditionSubtraction()
-    {
-        $result = calculate_sig_figs_multiplication_and_division(3.4e5);
-        $expectedOutput = 2;
-
-        $this->assertEquals($expectedOutput, $result);
-    }
-
-    public function testZeroDecimalsAdditionSubtractionAdditionSubtraction()
+    public function testZeroDecimalsAdditionSubtraction()
     {
         $result = calculate_sig_figs_addition_and_subtraction(10, 100, 1000);
         $expectedOutput = 0;
@@ -156,6 +148,22 @@ class CalculateSigFigsUnitTest extends \PHPUnit\Framework\TestCase
     {
         $result = calculate_sig_figs_addition_and_subtraction(10, "#");
         $expectedOutput = null;
+
+        $this->assertEquals($expectedOutput, $result);
+    }
+
+    public function testPositiveNumberInScientificNotationAdditionSubtraction()
+    {
+        $result = calculate_sig_figs_addition_and_subtraction(3.4e5);
+        $expectedOutput = 0;
+
+        $this->assertEquals($expectedOutput, $result);
+    }
+    
+    public function testPositiveNumberInScientificNotationMultiplicationDivision()
+    {
+        $result = calculate_sig_figs_multiplication_and_division(3.4e5);
+        $expectedOutput = 2;
 
         $this->assertEquals($expectedOutput, $result);
     }
